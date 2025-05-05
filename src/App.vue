@@ -3,5 +3,7 @@ import SupersetEmbed from './components/SupersetEmbed.vue'
 </script>
 
 <template>
-  <SupersetEmbed />
+  <div>
+    <SupersetEmbed />
+  </div>
 </template>
