@@ -35,7 +35,7 @@ onMounted(() => {
           expanded: false,
           visible: false,
         },
-        urlParams: { standalone: 3, activeTab: 1 },
+        urlParams: { standalone: 2 },
         hideChartControls: true,
       },
     })
