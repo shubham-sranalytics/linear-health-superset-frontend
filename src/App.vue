@@ -6,7 +6,7 @@ const loading = ref<boolean>(true)
 const guestToken = ref<string>('')
 
 const fetchDashboard = async () => {
-  const response = await fetch('https://superset-backend.vercel.app/', {
+  const response = await fetch('https://linear-health-superset-backend.vercel.app/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
