@@ -1,11 +1,33 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
 import SupersetEmbed from './components/SupersetEmbed.vue'
+
+const loading = ref<boolean>(true)
+const guestToken = ref<string>('')
+
+const fetchDashboard = async () => {
+  const response = await fetch('https://superset-backend.vercel.app/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+  guestToken.value = ((await response.json()) as unknown as { token: string }).token
+}
+
+onMounted(() => {
+  fetchDashboard().then(() => {
+    loading.value = false
+  })
+})
 </script>
 
 <template>
   <SupersetEmbed
+    v-if="!loading"
+    :guest-token="guestToken"
     dashboard-id="30ddf642-4c36-40ee-ade2-fc77e6285a6c"
-    guest-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiIiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiJ9LCJyZXNvdXJjZXMiOlt7InR5cGUiOiJkYXNoYm9hcmQiLCJpZCI6IjMwZGRmNjQyLTRjMzYtNDBlZS1hZGUyLWZjNzdlNjI4NWE2YyJ9XSwicmxzX3J1bGVzIjpbXSwiaWF0IjoxNzQ2NjAzOTM5LjI0NDk5NzMsImV4cCI6MTc0NjYwNDIzOS4yNDQ5OTczLCJhdWQiOiJodHRwOi8vMC4wLjAuMDo4MDgwLyIsInR5cGUiOiJndWVzdCJ9.maGmRO92HMh2SnGvIm3RZIFMkqWrsbqF7BUB9de5PP8"
-    superset-domain="http://ec2-3-142-16-81.us-east-2.compute.amazonaws.com:8088"
+    superset-domain="https://dev-superset.linear.health"
   />
+  <div v-else>Loading...</div>
 </template>

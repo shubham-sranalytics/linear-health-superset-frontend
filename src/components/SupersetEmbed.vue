@@ -31,6 +31,10 @@ onMounted(() => {
       dashboardUiConfig: {
         hideTitle: true,
         hideTab: true,
+        filters: {
+          expanded: false,
+          visible: false,
+        },
         urlParams: { standalone: 3 },
         hideChartControls: true,
       },
