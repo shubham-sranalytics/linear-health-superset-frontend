@@ -40,7 +40,7 @@ onMounted(() => {
       },
     })
       .then((report) => {
-        windows.report = report
+        window.report = report
         console.log('Dashboard embedded successfully')
       })
       .catch((error) => {
