@@ -40,7 +40,6 @@ onMounted(() => {
       },
     })
       .then((report) => {
-        // @ts-ignore
         window.report = report
         console.log('Dashboard embedded successfully')
       })
