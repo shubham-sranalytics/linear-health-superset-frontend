@@ -35,10 +35,17 @@ onMounted(() => {
           expanded: false,
           visible: false,
         },
-        urlParams: { standalone: 3 },
+        urlParams: { standalone: 3, activeTab: 1 },
         hideChartControls: true,
       },
     })
+      .then((report) => {
+        windows.report = report
+        console.log('Dashboard embedded successfully')
+      })
+      .catch((error) => {
+        console.error('Error embedding dashboard:', error)
+      })
   })
 })
 </script>
