@@ -6,8 +6,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import("@/pages/PageHome.vue")
+      name: 'task',
+      component: () => import("@/pages/PageTask.vue")
     },
     {
       path: '/messaging',
@@ -29,11 +29,11 @@ const router = createRouter({
       name: 'assessment-error',
       component: () => import("@/pages/PageAssessmentError.vue")
     },
-    {
-      path: '/task',
-      name: 'task',
-      component: () => import("@/pages/PageTask.vue")
-    },
+    // {
+    //   path: '/task',
+    //   name: 'task',
+    //   component: () => import("@/pages/PageTask.vue")
+    // },
     {
       path: '/error',
       name: 'error',
