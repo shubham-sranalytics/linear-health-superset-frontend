@@ -1,33 +1,29 @@
-<script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import SupersetEmbed from './components/SupersetEmbed.vue'
+<template>
+  <header>
+    <nav>
+      <router-link to="/">Home</router-link> | <router-link to="/error">Error</router-link> |
+      <router-link to="/messaging">Messaging</router-link> |
+      <router-link to="/messaging-error">Messaging Error</router-link> |
+      <router-link to="/assessment">Assessment</router-link> |
+      <router-link to="/assessment-error">Assessment Error</router-link> |
+      <router-link to="/task">Task</router-link>
+    </nav>
+  </header>
 
-const loading = ref<boolean>(true)
-const guestToken = ref<string>('')
+  <main>
+    <router-view />
+  </main>
+</template>
 
-const fetchDashboard = async () => {
-  const response = await fetch('https://linear-health-superset-backend.vercel.app/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-  guestToken.value = ((await response.json()) as unknown as { token: string }).token
+<style>
+header {
+  padding: 20px;
+  background-color: #f5f5f5;
 }
 
-onMounted(() => {
-  fetchDashboard().then(() => {
-    loading.value = false
-  })
-})
-</script>
-
-<template>
-  <SupersetEmbed
-    v-if="!loading"
-    :guest-token="guestToken"
-    dashboard-id="30ddf642-4c36-40ee-ade2-fc77e6285a6c"
-    superset-domain="https://dev-superset.linear.health"
-  />
-  <div v-else>Loading...</div>
-</template>
+nav a {
+  margin: 0px 10px;
+  text-decoration: none;
+  color: #1815ce;
+}
+</style>
