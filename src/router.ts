@@ -15,6 +15,11 @@ const router = createRouter({
       component: () => import("@/pages/PageMessaging.vue")
     },
     {
+      path: '/messaging-error',
+      name: 'messaging-error',
+      component: () => import("@/pages/PageMessagingError.vue")
+    },
+    {
       path: '/assessment',
       name: 'assessment',
       component: () => import("@/pages/PageAssessment.vue")

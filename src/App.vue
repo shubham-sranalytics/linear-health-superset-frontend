@@ -26,4 +26,8 @@ nav a {
   text-decoration: none;
   color: #1815ce;
 }
+/* Style for active router links */
+nav a.router-link-active {
+  color: #ff6600;
+}
 </style>
