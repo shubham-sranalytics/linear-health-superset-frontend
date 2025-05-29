@@ -1,12 +1,10 @@
 <template>
   <header>
     <nav>
-      <router-link to="/">Task</router-link> |
+      <router-link to="/">Referral</router-link> |
       <router-link to="/messaging">Messaging</router-link> |
-      <router-link to="/messaging-error">Messaging Error</router-link> |
       <router-link to="/assessment">Assessment</router-link> |
-      <router-link to="/assessment-error">Assessment Error</router-link> |
-      <router-link to="/error">Error</router-link> |
+      <router-link to="/task">Task</router-link>
     </nav>
   </header>
 

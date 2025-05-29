@@ -6,8 +6,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'task',
-      component: () => import("@/pages/PageTask.vue")
+      name: 'referral',
+      component: () => import("@/pages/PageReferral.vue")
     },
     {
       path: '/messaging',
@@ -15,29 +15,14 @@ const router = createRouter({
       component: () => import("@/pages/PageMessaging.vue")
     },
     {
-      path: '/messaging-error',
-      name: 'messaging-error',
-      component: () => import("@/pages/PageMessagingError.vue")
-    },
-    {
       path: '/assessment',
       name: 'assessment',
       component: () => import("@/pages/PageAssessment.vue")
     },
     {
-      path: '/assessment-error',
-      name: 'assessment-error',
-      component: () => import("@/pages/PageAssessmentError.vue")
-    },
-    // {
-    //   path: '/task',
-    //   name: 'task',
-    //   component: () => import("@/pages/PageTask.vue")
-    // },
-    {
-      path: '/error',
-      name: 'error',
-      component: () => import("@/pages/PageError.vue")
+      path: '/task',
+      name: 'task',
+      component: () => import("@/pages/PageTask.vue")
     }
   ]
 })
