@@ -6,7 +6,6 @@ const loading = ref<boolean>(true)
 const guestToken = ref<string>('')
 
 const fetchDashboard = async () => {
-  // https://linear-health-superset-backend.vercel.app
   const response = await fetch('https://linear-health-superset-backend.vercel.app', {
     method: 'POST',
     headers: {
@@ -29,8 +28,8 @@ onMounted(() => {
       <SupersetEmbed
         v-if="!loading"
         :guest-token="guestToken"
-        dashboard-id="bfe106ab-3219-4664-969c-2f2f96fd377a"
-        superset-domain="https://dev-superset.linear.health"
+        dashboard-id="3e81aa97-e600-4aaa-a245-444fea0f266c"
+        superset-domain="https://superset.linear.health"
       />
       <div v-else>Loading dashboard...</div>
     </div>
